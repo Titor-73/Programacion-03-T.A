@@ -1,0 +1,3 @@
+public enum EstadoVenta {
+    REGISTRADA, PARCIALMENTE_DEVUELTA, DEVUELTA, ANULADA
+}

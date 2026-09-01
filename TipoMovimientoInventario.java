@@ -1,0 +1,3 @@
+public enum TipoMovimientoInventario {
+    INGRESO, VENTA, RESERVA, LIBERACION_RESERVA, MERMA, VENCIMIENTO, DEVOLUCION
+}
