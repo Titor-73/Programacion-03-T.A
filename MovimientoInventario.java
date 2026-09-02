@@ -22,7 +22,7 @@ public class MovimientoInventario {
         this.origen = origen;
         this.inventarioProducto = new InventarioProducto(inventarioProducto);
         this.usuario = usuario;
-		this.lote = new LoteInventario(lote);
+		this.lote = (lote != null)? new LoteInventario(lote) : null;
         this.stockFisicoResultante = inventarioProducto.getStockFisico();
         this.stockReservadoResultante = inventarioProducto.getStockReservado();
     }
