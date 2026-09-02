@@ -1,3 +1,3 @@
 public enum EstadoDevolucion {
-    REGISTRADA, PROCESADA, CANCELADA
+    REGISTRADA, PROCESADA, ANULADA
 }
