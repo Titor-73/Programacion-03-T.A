@@ -31,6 +31,7 @@ public class InventarioProducto {
 		this.movimientos = new ArrayList<>(inventario.movimientos);
 		this.idInventarioProducto = inventario.idInventarioProducto;
 		this.stockFisico = inventario.stockFisico;
+		this.stockReservado = inventario.stockReservado;
 		this.stockMinimo = inventario.stockMinimo;
 		this.ultimaActualizacion = inventario.ultimaActualizacion;
 		this.activo = inventario.activo;
