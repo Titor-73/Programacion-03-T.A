@@ -44,4 +44,7 @@ public class Promocion {
     public EstadoPromocion getEstado() { return estado; }
     public void setEstado(EstadoPromocion estado) { this.estado = estado; }
     public List<DetallePromocion> getDetalles() { return new ArrayList<>(this.detalles); }
+	public void setIdPromocion (int idPromocion){
+		this.idPromocion = idPromocion;
+	}
 }
