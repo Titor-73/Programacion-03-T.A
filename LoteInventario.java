@@ -18,7 +18,12 @@ public class LoteInventario {
         this.activo = true;
         this.inventarioProducto = inventarioProducto;
     }
-	
+	public LoteInventario(LoteInventario lote){
+		this.idLote = lote.idLote;
+		this.codigoLote = lote.codigoLote;
+		this.cantidadActual = lote.cantidadActual;
+		this.activo = lote.activo;
+	}
 	public int getIdLote() { return idLote; }
     public String getCodigoLote() { return codigoLote; }
     public int getCantidadActual() { return cantidadActual; }
