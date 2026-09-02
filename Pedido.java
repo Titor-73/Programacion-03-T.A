@@ -22,6 +22,7 @@ public class Pedido {
 	public Pedido(int idPedido, Cliente cliente, Sede sede, Cajero cajero) {
         this.idPedido = idPedido;
         this.fechaCreacion = LocalDateTime.now();
+        this.fechaExpiracionReserva = this.fechaCreacion.plusHours(2);
         this.estado = EstadoPedido.RESERVADO;
         this.totalReferencial = BigDecimal.ZERO;
         this.cliente = cliente;
@@ -29,9 +30,16 @@ public class Pedido {
         this.cajero = cajero;
         this.detalles = new ArrayList<>();
     }
+
 	public Pedido(Pedido pedido) {
         this.idPedido = pedido.idPedido;
-        this.fechaCreacion = LocalDateTime.now();
+        this.fechaCreacion = pedido.fechaCreacion;
+        this.fechaExpiracionReserva = pedido.fechaExpiracionReserva;
+        this.fechaPreparacion = pedido.fechaPreparacion;
+        this.fechaListoRecojo = pedido.fechaListoRecojo;
+        this.fechaEntrega = pedido.fechaEntrega;
+        this.fechaCancelacion = pedido.fechaCancelacion;
+        this.motivoCancelacion = pedido.motivoCancelacion;
         this.estado = pedido.estado;
         this.totalReferencial = pedido.totalReferencial;
         this.cliente = pedido.cliente;
@@ -47,7 +55,7 @@ public class Pedido {
     public BigDecimal getTotalReferencial() { return totalReferencial; }
     public Cliente getCliente() { return new Cliente(cliente); }
     public Sede getSede() { return new Sede(sede); }
-    public Cajero getCajero() { return new Cajero(cajero); }
+    public Cajero getCajero() { return (cajero != null) ? new Cajero(cajero) : null; }
     public List<DetallePedido> getDetalles() { return new ArrayList<>(this.detalles); }
 	
 	public void agregarDetalle(DetallePedido detalle) {
