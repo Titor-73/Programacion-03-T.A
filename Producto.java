@@ -36,7 +36,9 @@ public class Producto {
         this.activo = producto.activo;
         this.controlaVencimiento = producto.controlaVencimiento;
         this.fechaRegistro = producto.fechaRegistro;
-        this.categoria = producto.categoria;
+		this.categoria = (producto.categoria != null) 
+                ? new Categoria(producto.categoria) 
+                : null;
 		this.imagenUrl = producto.imagenUrl;
     }
 	
