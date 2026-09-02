@@ -7,9 +7,9 @@ public class Cliente extends Usuario {
         super(idUsuario, nombres, apellidos, correo, contrasenaHash, telefono);
 		pedidos = new ArrayList<>();
     }
-	public Cajero(Cajero cajero){
-		super(cajero);
-		pedidos = new ArrayList<>(cajero.pedidos);
+	public Cliente(Cliente cliente){
+		super(cliente);
+		pedidos = new ArrayList<>(cliente.pedidos);
 	}
 	
 	public List<Pedido> getPedidos(){

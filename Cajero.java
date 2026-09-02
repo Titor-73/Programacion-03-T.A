@@ -5,7 +5,7 @@ public class Cajero extends Usuario {
 	public Cajero(int idUsuario, String nombres, String apellidos, String correo, String contrasenaHash, String telefono, String codigoEmpleado, Sede sede) {
         super(idUsuario, nombres, apellidos, correo, contrasenaHash, telefono);
         this.codigoEmpleado = codigoEmpleado;
-		this.sede = newSede(sede);
+		this.sede = new Sede(sede);
     }
 	public Cajero(Cajero cajero){
 		super(cajero);

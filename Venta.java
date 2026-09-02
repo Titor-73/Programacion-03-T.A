@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Venta {
     private int idVenta;
@@ -35,7 +36,7 @@ public class Venta {
         this.subtotal = venta.subtotal;
         this.descuentoTotal = venta.descuentoTotal;
         this.total = venta.total;
-        this.estado = venta.EstadoVenta;
+        this.estado = venta.estado;
         this.sede = venta.getSede();
         this.cajero = venta.getCajero();
         this.pedido = venta.getPedido();
@@ -50,9 +51,9 @@ public class Venta {
     public BigDecimal getTotal() { return total; }
     public EstadoVenta getEstado() { return estado; }
     public void setEstado(EstadoVenta estado) { this.estado = estado; }
-    public Sede getSede() { return Sede(sede); }
-    public Cajero getCajero() { return Cajero(cajero); }
-    public Pedido getPedido() { return Pedido(pedido); }
+    public Sede getSede() { return new Sede(sede); }
+    public Cajero getCajero() { return new Cajero(cajero); }
+    public Pedido getPedido() { return new Pedido(pedido); }
     public List<DetalleVenta> getDetalles() { return new ArrayList<>(this.detalles); }
     public List<Devolucion> getDevoluciones() { return new ArrayList<>(this.devoluciones); }
 	

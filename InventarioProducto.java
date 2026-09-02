@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.ArrayList;
 
 public class InventarioProducto {
     private int idInventarioProducto;

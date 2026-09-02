@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Promocion {
     private int idPromocion;
@@ -25,7 +26,7 @@ public class Promocion {
         this.descripcion = promocion.descripcion;
         this.fechaInicio = promocion.fechaInicio;
         this.fechaFin = promocion.fechaFin;
-        this.estado = promocion.EstadoPromocion;
+        this.estado = promocion.estado;
         this.detalles = new ArrayList<>(promocion.detalles);
     }
 	
