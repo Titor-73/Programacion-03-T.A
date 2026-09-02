@@ -24,9 +24,10 @@ public class Producto {
         this.activo = true;
         this.controlaVencimiento = controlaVencimiento;
         this.fechaRegistro = LocalDateTime.now();
-        this.categoria = categoria;
+        this.categoria = (categoria != null) ? new Categoria(categoria) : null;
 		this.imagenUrl = imagenUrl;
     }
+
 	public Producto(Producto producto) {
         this.idProducto = producto.idProducto;
         this.codigo = producto.codigo;
@@ -36,7 +37,7 @@ public class Producto {
         this.activo = producto.activo;
         this.controlaVencimiento = producto.controlaVencimiento;
         this.fechaRegistro = producto.fechaRegistro;
-        this.categoria = producto.categoria;
+        this.categoria = (producto.categoria != null) ? new Categoria(producto.categoria) : null;
 		this.imagenUrl = producto.imagenUrl;
     }
 	
@@ -48,5 +49,5 @@ public class Producto {
     public boolean isActivo() { return activo; }
     public void setActivo(boolean activo) { this.activo = activo; }
     public boolean isControlaVencimiento() { return controlaVencimiento; }
-    public Categoria getCategoria() { return categoria; }
+    public Categoria getCategoria() { return (categoria != null) ? new Categoria(categoria) : null; }
 }
