@@ -24,7 +24,7 @@ public class Venta {
         this.total = BigDecimal.ZERO;
         this.estado = EstadoVenta.REGISTRADA;
         this.sede = new Sede(sede);
-        this.cajero = cajero;
+        this.cajero = new Cajero(cajero);
         this.pedido = new Pedido(pedido);
         this.detalles = new ArrayList<>();
         this.devoluciones = new ArrayList<>();
@@ -40,10 +40,12 @@ public class Venta {
         this.sede = venta.getSede();
         this.cajero = venta.getCajero();
         this.pedido = venta.getPedido();
-        this.detalles = new ArrayList<>();
-        this.devoluciones = new ArrayList<>();
+        this.detalles = venta.getDetalles();
+        this.devoluciones = venta.getDevoluciones();
 	}
-	
+	public void setIdVenta(int idVenta){
+		this.idVenta = idVenta;
+	}
 	public int getIdVenta() { return idVenta; }
     public LocalDateTime getFechaHora() { return fechaHora; }
     public BigDecimal getSubtotal() { return subtotal; }
@@ -56,7 +58,7 @@ public class Venta {
     public Pedido getPedido() { return new Pedido(pedido); }
     public List<DetalleVenta> getDetalles() { return new ArrayList<>(this.detalles); }
     public List<Devolucion> getDevoluciones() { return new ArrayList<>(this.devoluciones); }
-	
+
 	public void agregarDetalle(DetalleVenta detalle) {
         if (detalle != null) {
             this.detalles.add(detalle);
