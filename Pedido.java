@@ -7,6 +7,11 @@ public class Pedido {
     private int idPedido;
     private LocalDateTime fechaCreacion;
     private LocalDateTime fechaExpiracionReserva;
+	private LocalDateTime fechaPreparacion;
+	private LocalDateTime fechaListoRecojo;
+	private LocalDateTime fechaEntrega;
+	private LocalDateTime fechaCancelacion;
+	private String motivoCancelacion;
     private EstadoPedido estado;
     private BigDecimal totalReferencial;
     private Cliente cliente;
