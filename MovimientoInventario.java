@@ -21,8 +21,8 @@ public class MovimientoInventario {
         this.motivo = motivo;
         this.origen = origen;
         this.inventarioProducto = new InventarioProducto(inventarioProducto);
-        this.usuario = new Usuario(usuario);
-		this.lote = new LoteInventario(inventarioProducto);
+        this.usuario = usuario;
+		this.lote = new LoteInventario(lote);
         this.stockFisicoResultante = inventarioProducto.getStockFisico();
         this.stockReservadoResultante = inventarioProducto.getStockReservado();
     }
