@@ -5,8 +5,13 @@ public class Cajero extends Usuario {
 	public Cajero(int idUsuario, String nombres, String apellidos, String correo, String contrasenaHash, String telefono, String codigoEmpleado, Sede sede) {
         super(idUsuario, nombres, apellidos, correo, contrasenaHash, telefono);
         this.codigoEmpleado = codigoEmpleado;
-		this.sede = sede;
+		this.sede = newSede(sede);
     }
+	public Cajero(Cajero cajero){
+		super(cajero);
+		this.codigoEmpleado = cajero.codigoEmpleado;
+		this.sede = cajero.getSede();
+	}
 	
 	public String getCodigoEmpleado() { 
 		return codigoEmpleado;

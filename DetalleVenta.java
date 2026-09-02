@@ -24,8 +24,8 @@ public class DetalleVenta {
     public BigDecimal getPrecioUnitario() { return precioUnitario; }
     public BigDecimal getDescuentoUnitario() { return descuentoUnitario; }
     public BigDecimal getSubtotal() { return subtotal; }
-    public Venta getVenta() { return venta; }
-    public Producto getProducto() { return producto; }
+    public Venta getVenta() { return Venta(venta); }
+    public Producto getProducto() { return Producto(producto); }
 	
 	public void calcularSubtotal() {
         BigDecimal precioEfectivo = this.precioUnitario.subtract(this.descuentoUnitario);

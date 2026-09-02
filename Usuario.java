@@ -20,7 +20,19 @@ public abstract class Usuario {
         this.telefono = telefono;
         this.activo = true; // Por defecto nace activo
         this.fechaRegistro = LocalDateTime.now(); // Asigna la fecha y hora actual
+        this.ultimoAcceso = LocalDateTime.now();
     }
+	public Usuario(Usuario usuario){
+		this.idUsuario = usuario.idUsuario;
+		this.nombres = usuario.nombres;
+		this.apellidos = usuario.apellidos;
+		this.correo = usuario.correo;
+		this.contrasenaHash = usuario.contrasenaHash;
+		this.telefono = usuario.telefono;
+		this.activo = usuario.activo;
+		this.fechaRegistro = usuario.fechaRegistro;
+		this.ultimoAcceso = usuario.ultimoAcceso;
+	}
 	public int getIdUsuario() { 
 		return idUsuario; 
 	}

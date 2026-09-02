@@ -29,6 +29,6 @@ public class DetallePedido {
 	
 	public void calcularSubtotalReferencial() {
         BigDecimal precioEfectivo = this.precioReferencial.subtract(this.descuentoReferencial);
-        this.subtotalReferencial = precioEfectivo.multiply(BigDecimal.valueOf(this.cantidad));
+        this.subtotalReferencial = this.precioEfectivo.multiply(BigDecimal.valueOf(this.cantidad));
     }
 }

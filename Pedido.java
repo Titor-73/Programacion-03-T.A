@@ -33,14 +33,15 @@ public class Pedido {
         this.cajero = pedido.cajero;
         this.detalles = new ArrayList<>(pedido.detalles);
     }
+	
 	public int getIdPedido() { return idPedido; }
     public LocalDateTime getFechaCreacion() { return fechaCreacion; }
     public EstadoPedido getEstado() { return estado; }
     public void setEstado(EstadoPedido estado) { this.estado = estado; }
     public BigDecimal getTotalReferencial() { return totalReferencial; }
-    public Cliente getCliente() { return cliente; }
-    public Sede getSede() { return sede; }
-    public Cajero getCajero() { return cajero; }
+    public Cliente getCliente() { return Cliente(cliente); }
+    public Sede getSede() { return Sede(sede); }
+    public Cajero getCajero() { return Cajero(cajero); }
     public List<DetallePedido> getDetalles() { return new ArrayList<>(this.detalles); }
 	
 	public void agregarDetalle(DetallePedido detalle) {
