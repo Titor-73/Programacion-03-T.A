@@ -13,15 +13,16 @@ public class MovimientoInventario {
     private LoteInventario lote;
     private Usuario usuario;
 	
-	public MovimientoInventario(int idMovimiento, TipoMovimientoInventario tipo, int cantidad, String motivo, OrigenMovimiento origen, InventarioProducto inventarioProducto, Usuario usuario) {
+	public MovimientoInventario(int idMovimiento, TipoMovimientoInventario tipo, int cantidad, String motivo, OrigenMovimiento origen, InventarioProducto inventarioProducto,LoteInventario inventarioProducto, Usuario usuario) {
         this.idMovimiento = idMovimiento;
         this.tipo = tipo;
         this.cantidad = cantidad;
         this.fechaHora = LocalDateTime.now();
         this.motivo = motivo;
         this.origen = origen;
-        this.inventarioProducto = inventarioProducto;
-        this.usuario = usuario;
+        this.inventarioProducto = new InventarioProducto(inventarioProducto);
+        this.usuario = new Usuario(usuario);
+		this.lote = new LoteInventario(inventarioProducto);
         this.stockFisicoResultante = inventarioProducto.getStockFisico();
         this.stockReservadoResultante = inventarioProducto.getStockReservado();
     }
