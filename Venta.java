@@ -134,14 +134,7 @@ public class Venta {
     public void agregarDetalle(DetalleVenta detalle) {
         if (detalle != null) {
             this.detalles.add(detalle);
-            //Evita errores si venta tiene un valor nulo y evita q el programa se rompa
-            BigDecimal precioUnitario = (detalle.getPrecioUnitario() != null)
-                ? detalle.getPrecioUnitario()
-                : BigDecimal.ZERO;
-    
-             BigDecimal descuentoUnitario = (detalle.getDescuentoUnitario() != null)
-                 ? detalle.getDescuentoUnitario()
-                : BigDecimal.ZERO;
+           
 
             BigDecimal cantidad = BigDecimal.valueOf(detalle.getCantidad());
             
