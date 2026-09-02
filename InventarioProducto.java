@@ -35,8 +35,8 @@ public class InventarioProducto {
 		this.stockMinimo = inventario.stockMinimo;
 		this.ultimaActualizacion = inventario.ultimaActualizacion;
 		this.activo = inventario.activo;
-		this.sede = new Sede(inventario.sede);
-		this.producto = new Producto(inventario.producto);
+		this.sede = inventario.sede;
+        this.producto = inventario.producto;
 	}
 	public int getIdInventarioProducto() { return idInventarioProducto; }
     public int getStockFisico() { return stockFisico; }
