@@ -25,6 +25,7 @@ public class Devolucion {
         this.cajero = cajero;
         this.detalles = new ArrayList<>();
     }
+
 	public Devolucion(Devolucion devolucion) {
         this.idDevolucion = devolucion.idDevolucion;
         this.fechaHora = devolucion.fechaHora;
@@ -32,9 +33,9 @@ public class Devolucion {
         this.motivo = devolucion.motivo;
         this.montoDevuelto = devolucion.montoDevuelto;
         this.estado = devolucion.estado;
-        this.venta = devolucion.getVenta();
-        this.cajero = devolucion.getCajero();
-        this.detalles = new ArrayList<>();
+        this.venta = (devolucion.venta != null) ? new Venta(devolucion.venta) : null;
+        this.cajero = (devolucion.cajero != null) ? new Cajero(devolucion.cajero) : null;
+        this.detalles = (devolucion.detalles != null) ? new ArrayList<>(devolucion.detalles) : new ArrayList<>();
     }
 	
 	public int getIdDevolucion() { return idDevolucion; }
@@ -44,8 +45,8 @@ public class Devolucion {
     public BigDecimal getMontoDevuelto() { return montoDevuelto; }
     public EstadoDevolucion getEstado() { return estado; }
     public void setEstado(EstadoDevolucion estado) { this.estado = estado; }
-    public Venta getVenta() { return new Venta(venta); }
-    public Cajero getCajero() { return new Cajero(cajero); }
+    public Venta getVenta() { return (venta != null) ? new Venta(venta) : null; }
+    public Cajero getCajero() { return (cajero != null) ? new Cajero(cajero) : null; }
     public List<DetalleDevolucion> getDetalles() { return new ArrayList<>(this.detalles); }
 	
 	public void agregarDetalle(DetalleDevolucion detalle) {
