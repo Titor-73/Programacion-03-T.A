@@ -23,9 +23,9 @@ public class Venta {
         this.descuentoTotal = BigDecimal.ZERO;
         this.total = BigDecimal.ZERO;
         this.estado = EstadoVenta.REGISTRADA;
-        this.sede = sede;
+        this.sede = new Sede(sede);
         this.cajero = cajero;
-        this.pedido = pedido;
+        this.pedido = new Pedido(pedido);
         this.detalles = new ArrayList<>();
         this.devoluciones = new ArrayList<>();
     }
