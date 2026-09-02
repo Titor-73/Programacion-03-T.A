@@ -42,10 +42,10 @@ public class Pedido {
         this.motivoCancelacion = pedido.motivoCancelacion;
         this.estado = pedido.estado;
         this.totalReferencial = pedido.totalReferencial;
-        this.cliente = pedido.cliente;
-        this.sede = pedido.sede;
-        this.cajero = pedido.cajero;
-        this.detalles = new ArrayList<>(pedido.detalles);
+        this.cliente = (pedido.cliente != null) ? new Cliente(pedido.cliente) : null;
+        this.sede = (pedido.sede != null) ? new Sede(pedido.sede) : null;
+        this.cajero = (pedido.cajero != null) ? new Cajero(pedido.cajero) : null;
+        this.detalles = (pedido.detalles != null) ? new ArrayList<>(pedido.detalles) : new ArrayList<>();
     }
 	
 	public int getIdPedido() { return idPedido; }
@@ -53,8 +53,8 @@ public class Pedido {
     public EstadoPedido getEstado() { return estado; }
     public void setEstado(EstadoPedido estado) { this.estado = estado; }
     public BigDecimal getTotalReferencial() { return totalReferencial; }
-    public Cliente getCliente() { return new Cliente(cliente); }
-    public Sede getSede() { return new Sede(sede); }
+    public Cliente getCliente() { return (cliente != null) ? new Cliente(cliente) : null; }
+    public Sede getSede() { return (sede != null) ? new Sede(sede) : null; }
     public Cajero getCajero() { return (cajero != null) ? new Cajero(cajero) : null; }
     public List<DetallePedido> getDetalles() { return new ArrayList<>(this.detalles); }
 	
