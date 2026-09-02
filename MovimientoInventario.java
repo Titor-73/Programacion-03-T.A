@@ -13,7 +13,7 @@ public class MovimientoInventario {
     private LoteInventario lote;
     private Usuario usuario;
 	
-	public MovimientoInventario(int idMovimiento, TipoMovimientoInventario tipo, int cantidad, String motivo, OrigenMovimiento origen, InventarioProducto inventarioProducto,LoteInventario lote, Usuario usuario) {
+	public MovimientoInventario(int idMovimiento, TipoMovimientoInventario tipo, int cantidad, String motivo, OrigenMovimiento origen, InventarioProducto inventarioProducto, LoteInventario lote, Usuario usuario) {
         this.idMovimiento = idMovimiento;
         this.tipo = tipo;
         this.cantidad = cantidad;
@@ -21,8 +21,18 @@ public class MovimientoInventario {
         this.motivo = motivo;
         this.origen = origen;
         this.inventarioProducto = new InventarioProducto(inventarioProducto);
-        this.usuario = usuario;
-		this.lote = (lote != null)? new LoteInventario(lote) : null;
+
+        if (usuario instanceof Cliente) {
+            this.usuario = new Cliente((Cliente) usuario);
+        } else if (usuario instanceof Cajero) {
+            this.usuario = new Cajero((Cajero) usuario);
+        } else if (usuario instanceof Administrador) {
+            this.usuario = new Administrador((Administrador) usuario);
+        } else {
+            this.usuario = null;
+        }
+
+		this.lote = (lote != null) ? new LoteInventario(lote) : null;
         this.stockFisicoResultante = inventarioProducto.getStockFisico();
         this.stockReservadoResultante = inventarioProducto.getStockReservado();
     }
