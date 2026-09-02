@@ -134,17 +134,28 @@ public class Venta {
     public void agregarDetalle(DetalleVenta detalle) {
         if (detalle != null) {
             this.detalles.add(detalle);
+            //Evita errores si venta tiene un valor nulo y evita q el programa se rompa
+            BigDecimal precioUnitario = (detalle.getPrecioUnitario() != null)
+                ? detalle.getPrecioUnitario()
+                : BigDecimal.ZERO;
+    
+             BigDecimal descuentoUnitario = (detalle.getDescuentoUnitario() != null)
+                 ? detalle.getDescuentoUnitario()
+                : BigDecimal.ZERO;
 
+            BigDecimal cantidad = BigDecimal.valueOf(detalle.getCantidad());
+            
             // Subtotal ANTES del descuento
             BigDecimal brutoLinea =
                     detalle.getPrecioUnitario()
-                            .multiply(BigDecimal.valueOf(detalle.getCantidad()));
+                            .multiply(cantidad);
 
             // Descuento total de esta línea
             BigDecimal descuentoLinea =
                     detalle.getDescuentoUnitario()
-                            .multiply(BigDecimal.valueOf(detalle.getCantidad()));
+                            .multiply(cantidad);
 
+            
             this.subtotal =
                     this.subtotal.add(brutoLinea);
 
