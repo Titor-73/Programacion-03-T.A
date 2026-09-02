@@ -46,4 +46,8 @@ public class InventarioProducto {
     public int getStockDisponible() {
         return this.stockFisico - this.stockReservado;
     }
+	public boolean tieneBajoStock() {
+    	return getStockDisponible() <= stockMinimo;
+	}
+
 }
