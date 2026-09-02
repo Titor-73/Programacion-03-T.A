@@ -18,15 +18,17 @@ public class LoteInventario {
         this.activo = true;
         this.inventarioProducto = inventarioProducto;
     }
-	public LoteInventario(LoteInventario lote){
+
+	public LoteInventario(LoteInventario lote) {
 		this.idLote = lote.idLote;
 		this.codigoLote = lote.codigoLote;
 		this.cantidadActual = lote.cantidadActual;
 		this.activo = lote.activo;
 		this.fechaIngreso = lote.fechaIngreso;
 		this.fechaVencimiento = lote.fechaVencimiento;
-		this.inventarioProducto = new InventarioProducto(lote.inventarioProducto);
+		this.inventarioProducto = (lote.inventarioProducto != null) ? new InventarioProducto(lote.inventarioProducto) : null;
 	}
+
 	public int getIdLote() { return idLote; }
     public String getCodigoLote() { return codigoLote; }
     public int getCantidadActual() { return cantidadActual; }
