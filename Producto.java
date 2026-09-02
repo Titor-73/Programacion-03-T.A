@@ -13,7 +13,9 @@ public class Producto {
     private LocalDateTime fechaRegistro;
     private Categoria categoria;
 	
-	public Producto(int idProducto, String codigo, String nombre, String descripcion, BigDecimal precioRegular, boolean controlaVencimiento, Categoria categoria) {
+	public Producto(int idProducto, String codigo, String nombre, String descripcion, 
+					BigDecimal precioRegular, boolean controlaVencimiento, 
+					Categoria categoria, String imagenUrl) {
         this.idProducto = idProducto;
         this.codigo = codigo;
         this.nombre = nombre;
@@ -23,6 +25,7 @@ public class Producto {
         this.controlaVencimiento = controlaVencimiento;
         this.fechaRegistro = LocalDateTime.now();
         this.categoria = categoria;
+		this.imagenUrl = imagenUrl;
     }
 	public Producto(Producto producto) {
         this.idProducto = producto.idProducto;
@@ -34,6 +37,7 @@ public class Producto {
         this.controlaVencimiento = producto.controlaVencimiento;
         this.fechaRegistro = producto.fechaRegistro;
         this.categoria = producto.categoria;
+		this.imagenUrl = producto.imagenUrl;
     }
 	
 	public int getIdProducto() { return idProducto; }
