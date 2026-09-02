@@ -13,7 +13,7 @@ public class MovimientoInventario {
     private LoteInventario lote;
     private Usuario usuario;
 	
-	public MovimientoInventario(int idMovimiento, TipoMovimientoInventario tipo, int cantidad, String motivo, OrigenMovimiento origen, InventarioProducto inventarioProducto,LoteInventario inventarioProducto, Usuario usuario) {
+	public MovimientoInventario(int idMovimiento, TipoMovimientoInventario tipo, int cantidad, String motivo, OrigenMovimiento origen, InventarioProducto inventarioProducto,LoteInventario lote, Usuario usuario) {
         this.idMovimiento = idMovimiento;
         this.tipo = tipo;
         this.cantidad = cantidad;
