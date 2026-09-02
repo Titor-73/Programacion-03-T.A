@@ -26,7 +26,17 @@ public class InventarioProducto {
         this.lotes = new ArrayList<>();
         this.movimientos = new ArrayList<>();
     }
-	
+	public InventarioProducto (InventarioProducto inventario){
+		this.lotes = new ArrayList<>(inventario.lotes);
+		this.movimientos = new ArrayList<>(inventario.movimientos);
+		this.idInventarioProducto = inventario.idInventarioProducto;
+		this.stockFisico = inventario.stockFisico;
+		this.stockMinimo = inventario.stockMinimo;
+		this.ultimaActualizacion = inventario.ultimaActualizacion;
+		this.activo = inventario.activo;
+		this.sede = new Sede(inventario.sede);
+		this.producto = new Producto(inventario.producto);
+	}
 	public int getIdInventarioProducto() { return idInventarioProducto; }
     public int getStockFisico() { return stockFisico; }
     public int getStockReservado() { return stockReservado; }
