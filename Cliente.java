@@ -3,18 +3,21 @@ import java.util.ArrayList;
 
 public class Cliente extends Usuario {
     private List<Pedido> pedidos;
+
 	public Cliente(int idUsuario, String nombres, String apellidos, String correo, String contrasenaHash, String telefono) {
         super(idUsuario, nombres, apellidos, correo, contrasenaHash, telefono);
-		pedidos = new ArrayList<>();
+		this.pedidos = new ArrayList<>();
     }
-	public Cliente(Cliente cliente){
+
+	public Cliente(Cliente cliente) {
 		super(cliente);
-		pedidos = new ArrayList<>(cliente.pedidos);
+		this.pedidos = (cliente.pedidos != null) ? new ArrayList<>(cliente.pedidos) : new ArrayList<>();
 	}
 	
-	public List<Pedido> getPedidos(){
+	public List<Pedido> getPedidos() {
 		return new ArrayList<>(this.pedidos);
 	}
+
 	public void agregarPedido(Pedido pedido) {
         if (pedido != null) {
             this.pedidos.add(pedido);
