@@ -25,7 +25,7 @@ public class LoteInventario {
 		this.activo = lote.activo;
 		this.fechaIngreso = lote.fechaIngreso;
 		this.fechaVencimiento = lote.fechaVencimiento;
-		this.inventarioProducto = new InventarioProducto(lote.InventarioProducto);
+		this.inventarioProducto = new InventarioProducto(lote.inventarioProducto);
 	}
 	public int getIdLote() { return idLote; }
     public String getCodigoLote() { return codigoLote; }
