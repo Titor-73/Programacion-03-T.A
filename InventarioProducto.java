@@ -1,49 +1,53 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.ArrayList;
 
-public class LoteInventario {
-    private int idLote;
-    private String codigoLote;
-    private int cantidadActual;
-    private LocalDate fechaIngreso;
-    private LocalDate fechaVencimiento;
+public class InventarioProducto {
+    private int idInventarioProducto;
+    private int stockFisico;
+    private int stockReservado;
+    private int stockMinimo;
+    private LocalDateTime ultimaActualizacion;
     private boolean activo;
-    private InventarioProducto inventarioProducto;
+    private Sede sede;
+    private Producto producto;
+    private List<LoteInventario> lotes;
+    private List<MovimientoInventario> movimientos;
 	
-	public LoteInventario(int idLote, String codigoLote, int cantidadActual, LocalDate fechaVencimiento, InventarioProducto inventarioProducto) {
-        this.idLote = idLote;
-        this.codigoLote = codigoLote;
-        this.cantidadActual = cantidadActual;
-        this.fechaIngreso = LocalDate.now();
-        this.fechaVencimiento = fechaVencimiento;
+	public InventarioProducto(int idInventarioProducto, int stockMinimo, Sede sede, Producto producto) {
+        this.idInventarioProducto = idInventarioProducto;
+        this.stockFisico = 0;
+        this.stockReservado = 0;
+        this.stockMinimo = stockMinimo;
+        this.ultimaActualizacion = LocalDateTime.now();
         this.activo = true;
-        this.inventarioProducto = inventarioProducto;
+        this.sede = sede;
+        this.producto = producto;
+        this.lotes = new ArrayList<>();
+        this.movimientos = new ArrayList<>();
+    }
+	
+	public int getIdInventarioProducto() { return idInventarioProducto; }
+    public int getStockFisico() { return stockFisico; }
+    public int getStockReservado() { return stockReservado; }
+    public Sede getSede() { return sede; }
+    public Producto getProducto() { return producto; }
+    public List<LoteInventario> getLotes() { return new ArrayList<>(this.lotes); }
+    public List<MovimientoInventario> getMovimientos() { return new ArrayList<>(this.movimientos); }
+	
+	public void agregarLote(LoteInventario lote) {
+        if (lote != null) {
+            this.lotes.add(lote);
+            this.stockFisico += lote.getCantidadActual();
+            this.ultimaActualizacion = LocalDateTime.now();
+        }
     }
 
-	public LoteInventario(LoteInventario lote){
-		this.idLote = lote.idLote;
-		this.codigoLote = lote.codigoLote;
-		this.cantidadActual = lote.cantidadActual;
-		this.activo = lote.activo;
-	}
+    public int getStockDisponible() {
+        return this.stockFisico - this.stockReservado;
+    }
 
-	public int getIdLote() { return idLote; }
-    public String getCodigoLote() { return codigoLote; }
-    public int getCantidadActual() { return cantidadActual; }
-    public void setCantidadActual(int cantidad) { this.cantidadActual = cantidad; }
-    public LocalDate getFechaVencimiento() { return fechaVencimiento; }
-    public InventarioProducto getInventarioProducto() { return inventarioProducto; }
-
-	public EstadoVencimiento getEstadoVencimiento(int diasProximoAVencer) {
-		LocalDate hoy = LocalDate.now();
-
-		if (fechaVencimiento.isBefore(hoy)) {
-			return EstadoVencimiento.VENCIDO;
-		}
-
-		if (!fechaVencimiento.isAfter(hoy.plusDays(diasProximoAVencer))) {
-			return EstadoVencimiento.PROXIMO_A_VENCER;
-		}
-
-		return EstadoVencimiento.VIGENTE;
+	public boolean tieneBajoStock() {
+    	return getStockDisponible() <= stockMinimo;
 	}
 }
