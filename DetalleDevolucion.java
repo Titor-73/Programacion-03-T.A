@@ -24,6 +24,6 @@ public class DetalleDevolucion {
     public BigDecimal getMontoDevuelto() { return montoDevuelto; }
     public boolean isReintegraStock() { return reintegraStock; }
     public String getMotivoNoReintegro() { return motivoNoReintegro; }
-    public Devolucion getDevolucion() { return new Devolucion(devolucion); }
-    public DetalleVenta getDetalleVenta() { return detalleVenta; }
+    public Devolucion getDevolucion() { return (devolucion != null) ? new Devolucion(devolucion) : null; }
+    public DetalleVenta getDetalleVenta() { return (detalleVenta != null) ? new DetalleVenta(detalleVenta) : null; }
 }
