@@ -19,6 +19,15 @@ public class Promocion {
         this.estado = EstadoPromocion.PROGRAMADA;
         this.detalles = new ArrayList<>();
     }
+	public Promocion(Promocion promocion) {
+        this.idPromocion = promocion.idPromocion;
+        this.nombre = promocion.nombre;
+        this.descripcion = promocion.descripcion;
+        this.fechaInicio = promocion.fechaInicio;
+        this.fechaFin = promocion.fechaFin;
+        this.estado = promocion.EstadoPromocion;
+        this.detalles = new ArrayList<>(promocion.detalles);
+    }
 	
 	public void agregarDetalle(DetallePromocion detalle) {
         if (detalle != null) {

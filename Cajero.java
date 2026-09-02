@@ -15,9 +15,9 @@ public class Cajero extends Usuario {
 		this.codigoEmpleado = codigoEmpleado;
 	}
 	public Sede getSede(){
-		return this.sede;
+		return new Sede(this.sede);
 	}
 	public void setSede(Sede sede){
-		this.sede = sede;
+		this.sede = new Sede(sede);
 	}
 }

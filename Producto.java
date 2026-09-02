@@ -24,6 +24,17 @@ public class Producto {
         this.fechaRegistro = LocalDateTime.now();
         this.categoria = categoria;
     }
+	public Producto(Producto producto) {
+        this.idProducto = producto.idProducto;
+        this.codigo = producto.codigo;
+        this.nombre = producto.nombre;
+        this.descripcion = producto.descripcion;
+        this.precioRegular = producto.precioRegular;
+        this.activo = producto.activo;
+        this.controlaVencimiento = producto.controlaVencimiento;
+        this.fechaRegistro = producto.fechaRegistro;
+        this.categoria = producto.categoria;
+    }
 	
 	public int getIdProducto() { return idProducto; }
     public String getCodigo() { return codigo; }

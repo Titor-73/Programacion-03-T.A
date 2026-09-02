@@ -14,8 +14,8 @@ public class DetallePedido {
         this.cantidad = cantidad;
         this.precioReferencial = precioReferencial;
         this.descuentoReferencial = (descuentoReferencial != null) ? descuentoReferencial : BigDecimal.ZERO;
-        this.pedido = pedido;
-        this.producto = producto;
+        this.pedido = new Pedido(pedido);
+        this.producto = new Producto(producto);
         this.calcularSubtotalReferencial();
     }
 	
@@ -24,8 +24,8 @@ public class DetallePedido {
     public BigDecimal getPrecioReferencial() { return precioReferencial; }
     public BigDecimal getDescuentoReferencial() { return descuentoReferencial; }
     public BigDecimal getSubtotalReferencial() { return subtotalReferencial; }
-    public Pedido getPedido() { return pedido; }
-    public Producto getProducto() { return producto; }
+    public Pedido getPedido() { return new Pedido(this.pedido); }
+    public Producto getProducto() { return new Producto(this.producto); }
 	
 	public void calcularSubtotalReferencial() {
         BigDecimal precioEfectivo = this.precioReferencial.subtract(this.descuentoReferencial);

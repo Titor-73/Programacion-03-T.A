@@ -18,6 +18,6 @@ public class DetallePromocion {
 	public int getIdDetallePromocion() { return idDetallePromocion; }
     public TipoDescuento getTipoDescuento() { return tipoDescuento; }
     public BigDecimal getValorDescuento() { return valorDescuento; }
-    public Promocion getPromocion() { return promocion; }
-    public Producto getProducto() { return producto; }
+    public Promocion getPromocion() { return new Promocion(promocion); }
+    public Producto getProducto() { return new Producto(producto); }
 }

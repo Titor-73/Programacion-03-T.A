@@ -16,14 +16,23 @@ public class Pedido {
 	public Pedido(int idPedido, Cliente cliente, Sede sede, Cajero cajero) {
         this.idPedido = idPedido;
         this.fechaCreacion = LocalDateTime.now();
-        this.estado = EstadoPedido.PENDIENTE; // Enum correspondiente
+        this.estado = EstadoPedido.RESERVADO;
         this.totalReferencial = BigDecimal.ZERO;
         this.cliente = cliente;
         this.sede = sede;
         this.cajero = cajero;
         this.detalles = new ArrayList<>();
     }
-	
+	public Pedido(Pedido pedido) {
+        this.idPedido = pedido.idPedido;
+        this.fechaCreacion = LocalDateTime.now();
+        this.estado = pedido.estado;
+        this.totalReferencial = pedido.totalReferencial;
+        this.cliente = pedido.cliente;
+        this.sede = pedido.sede;
+        this.cajero = pedido.cajero;
+        this.detalles = new ArrayList<>(pedido.detalles);
+    }
 	public int getIdPedido() { return idPedido; }
     public LocalDateTime getFechaCreacion() { return fechaCreacion; }
     public EstadoPedido getEstado() { return estado; }

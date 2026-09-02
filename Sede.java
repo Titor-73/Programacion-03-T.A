@@ -24,6 +24,17 @@ public class Sede {
         this.cajeros = new ArrayList<>();
         this.inventarios = new ArrayList<>();
     }
+	public Sede(Sede sede) {
+		this.idSede = sede.idSede;
+		this.nombre = sede.nombre;
+		this.direccion = sede.direccion;
+		this.telefono = sede.telefono;
+		this.activa = sede.activa;
+		this.horarioApertura = sede.horarioApertura;
+		this.horarioCierre = sede.horarioCierre;
+		this.cajeros = (sede.cajeros != null) ? new ArrayList<>(sede.cajeros) : new ArrayList<>();
+		this.inventarios = (sede.inventarios != null) ? new ArrayList<>(sede.inventarios) : new ArrayList<>();
+	}
 	
 	public int getIdSede() { return idSede; }
     public void setIdSede(int idSede) { this.idSede = idSede; }
