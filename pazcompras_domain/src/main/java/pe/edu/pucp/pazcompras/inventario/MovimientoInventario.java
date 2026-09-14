@@ -1,9 +1,9 @@
-package pe.edu.pucp.pazcompras.inventario.model;
+package pe.edu.pucp.pazcompras.inventario;
 
-import pe.edu.pucp.pazcompras.usuarios.model.Administrador;
-import pe.edu.pucp.pazcompras.usuarios.model.Cajero;
-import pe.edu.pucp.pazcompras.usuarios.model.Cliente;
-import pe.edu.pucp.pazcompras.usuarios.model.Usuario;
+import pe.edu.pucp.pazcompras.usuarios.Administrador;
+import pe.edu.pucp.pazcompras.usuarios.Cajero;
+import pe.edu.pucp.pazcompras.usuarios.Cliente;
+import pe.edu.pucp.pazcompras.usuarios.Usuario;
 
 import java.time.LocalDateTime;
 
