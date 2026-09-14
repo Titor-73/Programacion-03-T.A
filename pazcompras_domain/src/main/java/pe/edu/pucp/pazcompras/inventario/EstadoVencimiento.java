@@ -1,4 +1,4 @@
-package pe.edu.pucp.pazcompras.inventario.model;
+package pe.edu.pucp.pazcompras.inventario;
 
 public enum EstadoVencimiento {
     VIGENTE,
