@@ -14,7 +14,6 @@ public class Venta {
     private Cajero cajero;
     private Pedido pedido;
     private List<DetalleVenta> detalles;
-    private List<Devolucion> devoluciones;
 
     public Venta(int idVenta, Sede sede, Cajero cajero, Pedido pedido) {
         this.idVenta = idVenta;
@@ -40,7 +39,6 @@ public class Venta {
                 : null;
 
         this.detalles = new ArrayList<>();
-        this.devoluciones = new ArrayList<>();
     }
 
     // Constructor copia
@@ -68,9 +66,6 @@ public class Venta {
                 ? new ArrayList<>(venta.detalles)
                 : new ArrayList<>();
 
-        this.devoluciones = (venta.devoluciones != null)
-                ? new ArrayList<>(venta.devoluciones)
-                : new ArrayList<>();
     }
 
     public void setIdVenta(int idVenta) {
@@ -127,10 +122,6 @@ public class Venta {
         return new ArrayList<>(this.detalles);
     }
 
-    public List<Devolucion> getDevoluciones() {
-        return new ArrayList<>(this.devoluciones);
-    }
-
     public void agregarDetalle(DetalleVenta detalle) {
         if (detalle != null) {
             this.detalles.add(detalle);
@@ -160,9 +151,4 @@ public class Venta {
         }
     }
 
-    public void agregarDevolucion(Devolucion devolucion) {
-        if (devolucion != null) {
-            this.devoluciones.add(devolucion);
-        }
-    }
 }

@@ -1,3 +1,3 @@
 public enum OrigenMovimiento {
-    MANUAL, PEDIDO, VENTA, SISTEMA, DEVOLUCION
+    MANUAL, PEDIDO, VENTA, SISTEMA
 }
