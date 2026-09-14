@@ -1,1 +1,7 @@
 *.class
+**/target/
+/build-check/
+.idea/
+*.iml
+.vscode/
+**/nbproject/private/

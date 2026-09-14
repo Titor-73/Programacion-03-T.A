@@ -1,0 +1,26 @@
+name: Compilar proyecto Maven
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener proyecto
+        uses: actions/checkout@v4
+      - name: Configurar JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+      - name: Compilar y empaquetar todos los módulos
+        run: mvn --batch-mode --no-transfer-progress clean verify
+      - name: Ejecutar comprobación de consola
+        run: java -cp "pazcompras/target/classes:pazcompras_domain/target/classes" pe.edu.pucp.pazcompras.main.Principal
