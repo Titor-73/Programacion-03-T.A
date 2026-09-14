@@ -1,8 +1,8 @@
 package pe.edu.pucp.pazcompras.main;
 
 import java.math.BigDecimal;
-import pe.edu.pucp.pazcompras.catalogo.model.Categoria;
-import pe.edu.pucp.pazcompras.catalogo.model.Producto;
+import pe.edu.pucp.pazcompras.catalogo.Categoria;
+import pe.edu.pucp.pazcompras.catalogo.Producto;
 
 /** Punto de entrada para comprobar la integración con el módulo de dominio. */
 public class Principal {
