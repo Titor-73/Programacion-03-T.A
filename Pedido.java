@@ -48,15 +48,32 @@ public class Pedido {
         this.detalles = (pedido.detalles != null) ? new ArrayList<>(pedido.detalles) : new ArrayList<>();
     }
 	
-	public int getIdPedido() { return idPedido; }
+    public int getIdPedido() { return idPedido; }
     public LocalDateTime getFechaCreacion() { return fechaCreacion; }
-    public EstadoPedido getEstado() { return estado; }
+    public LocalDateTime getFechaExpiracionReserva() { return fechaExpiracionReserva; }
+    public EstadoPedido getEstado() {
+        evaluarVencimiento(LocalDateTime.now());
+        return estado;
+    }
     public void setEstado(EstadoPedido estado) { this.estado = estado; }
     public BigDecimal getTotalReferencial() { return totalReferencial; }
     public Cliente getCliente() { return (cliente != null) ? new Cliente(cliente) : null; }
     public Sede getSede() { return (sede != null) ? new Sede(sede) : null; }
     public Cajero getCajero() { return (cajero != null) ? new Cajero(cajero) : null; }
     public List<DetallePedido> getDetalles() { return new ArrayList<>(this.detalles); }
+
+    public boolean evaluarVencimiento(LocalDateTime fechaConsulta) {
+        boolean reservaPendiente = estado == EstadoPedido.RESERVADO
+                || estado == EstadoPedido.EN_PREPARACION
+                || estado == EstadoPedido.LISTO_PARA_RECOJO;
+        if (fechaConsulta != null
+                && reservaPendiente
+                && !fechaConsulta.isBefore(fechaExpiracionReserva)) {
+            estado = EstadoPedido.VENCIDO;
+            return true;
+        }
+        return false;
+    }
 	
 	public void agregarDetalle(DetallePedido detalle) {
         if (detalle != null) {

@@ -35,4 +35,18 @@ public class LoteInventario {
     public void setCantidadActual(int cantidad) { this.cantidadActual = cantidad; }
     public LocalDate getFechaVencimiento() { return fechaVencimiento; }
     public InventarioProducto getInventarioProducto() { return inventarioProducto; }
+
+    public EstadoVencimiento getEstadoVencimiento(LocalDate fechaConsulta, int diasProximoAVencer) {
+        if (fechaVencimiento == null) {
+            return EstadoVencimiento.VIGENTE;
+        }
+        LocalDate fechaBase = (fechaConsulta != null) ? fechaConsulta : LocalDate.now();
+        if (fechaVencimiento.isBefore(fechaBase)) {
+            return EstadoVencimiento.VENCIDO;
+        }
+        if (!fechaVencimiento.isAfter(fechaBase.plusDays(Math.max(0, diasProximoAVencer)))) {
+            return EstadoVencimiento.PROXIMO_A_VENCER;
+        }
+        return EstadoVencimiento.VIGENTE;
+    }
 }
