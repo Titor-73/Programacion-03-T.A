@@ -1,4 +1,4 @@
-package pe.edu.pucp.pazcompras.pedidos.model;
+package pe.edu.pucp.pazcompras.pedidos;
 
 public enum EstadoPedido {
     RESERVADO, EN_PREPARACION, LISTO_PARA_RECOJO, ENTREGADO, CANCELADO, VENCIDO
