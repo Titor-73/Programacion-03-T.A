@@ -1,4 +1,4 @@
-package pe.edu.pucp.pazcompras.promociones.model;
+package pe.edu.pucp.pazcompras.promociones;
 
 import java.time.LocalDateTime;
 import java.util.List;
