@@ -1,4 +1,4 @@
-package pe.edu.pucp.pazcompras.usuarios.model;
+package pe.edu.pucp.pazcompras.usuarios;
 
 public class Administrador extends Usuario {
 
