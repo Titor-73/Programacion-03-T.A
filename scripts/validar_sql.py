@@ -39,7 +39,7 @@ assert scalar("SELECT SUM(cantidad) FROM detalle_venta;") == "9"
 assert scalar("SELECT GROUP_CONCAT(stock_fisico ORDER BY id_inventario_producto) FROM inventario_producto;") == "24,10,19,8,20,9,15,4"
 assert scalar("SELECT SUM(stock_reservado) FROM inventario_producto;") == "8"
 
-checks = run((ROOT / "ScriptSQL/05_validaciones.sql").read_text(encoding="utf-8"))
+checks = run((ROOT / "ScriptSQL/03_validaciones.sql").read_text(encoding="utf-8"))
 for row in checks.splitlines():
     name, count = row.split("\t")
     assert count == "0", name + ": " + count
