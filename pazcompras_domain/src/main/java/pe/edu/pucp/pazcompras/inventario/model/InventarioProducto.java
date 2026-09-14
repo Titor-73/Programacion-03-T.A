@@ -1,6 +1,6 @@
 package pe.edu.pucp.pazcompras.inventario.model;
 
-import pe.edu.pucp.pazcompras.catalogo.model.Producto;
+import pe.edu.pucp.pazcompras.catalogo.Producto;
 import pe.edu.pucp.pazcompras.sedes.model.Sede;
 
 import java.time.LocalDateTime;
