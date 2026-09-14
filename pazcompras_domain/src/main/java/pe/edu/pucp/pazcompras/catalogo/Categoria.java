@@ -25,8 +25,7 @@ public class Categoria {
         this.descripcion = categoria.descripcion;
         this.activa = categoria.activa;
 
-        // Copiamos la lista, no cada Producto,
-        // para evitar Categoria -> Producto -> Categoria -> ...
+
         this.productos = (categoria.productos != null)
                 ? new ArrayList<>(categoria.productos)
                 : new ArrayList<>();
