@@ -1,8 +1,8 @@
-package pe.edu.pucp.pazcompras.pedidos.model;
+package pe.edu.pucp.pazcompras.pedidos;
 
-import pe.edu.pucp.pazcompras.sedes.model.Sede;
-import pe.edu.pucp.pazcompras.usuarios.model.Cajero;
-import pe.edu.pucp.pazcompras.usuarios.model.Cliente;
+import pe.edu.pucp.pazcompras.sedes.Sede;
+import pe.edu.pucp.pazcompras.usuarios.Cajero;
+import pe.edu.pucp.pazcompras.usuarios.Cliente;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
