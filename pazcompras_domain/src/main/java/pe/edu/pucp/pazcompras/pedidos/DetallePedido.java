@@ -1,6 +1,6 @@
-package pe.edu.pucp.pazcompras.pedidos.model;
+package pe.edu.pucp.pazcompras.pedidos;
 
-import pe.edu.pucp.pazcompras.catalogo.model.Producto;
+import pe.edu.pucp.pazcompras.catalogo.Producto;
 
 import java.math.BigDecimal;
 
