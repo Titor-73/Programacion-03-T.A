@@ -1,4 +1,4 @@
-package pe.edu.pucp.pazcompras.catalogo.model;
+package pe.edu.pucp.pazcompras.catalogo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
