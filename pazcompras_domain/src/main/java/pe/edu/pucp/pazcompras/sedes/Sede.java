@@ -1,7 +1,7 @@
-package pe.edu.pucp.pazcompras.sedes.model;
+package pe.edu.pucp.pazcompras.sedes;
 
-import pe.edu.pucp.pazcompras.inventario.model.InventarioProducto;
-import pe.edu.pucp.pazcompras.usuarios.model.Cajero;
+import pe.edu.pucp.pazcompras.inventario.InventarioProducto;
+import pe.edu.pucp.pazcompras.usuarios.Cajero;
 
 import java.time.LocalTime;
 import java.util.List;
