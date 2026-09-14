@@ -44,7 +44,7 @@ for row in checks.splitlines():
     name, count = row.split("\t")
     assert count == "0", name + ": " + count
 assert len(checks.splitlines()) == 10
-run((ROOT / "ScriptSQL/02_consultas.sql").read_text(encoding="utf-8"))
+run((ROOT / "ScriptSQL/04_consultas.sql").read_text(encoding="utf-8"))
 
 # Cada operacion negativa corre en su propia transaccion; al salir se revierte.
 negative = [
