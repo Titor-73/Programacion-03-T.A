@@ -1,0 +1,38 @@
+name: Validar SQL de PazCompras
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ScriptSQL/**'
+      - 'scripts/validar_sql.py'
+      - '.github/workflows/sql.yml'
+  pull_request:
+    paths:
+      - 'ScriptSQL/**'
+      - 'scripts/validar_sql.py'
+      - '.github/workflows/sql.yml'
+permissions:
+  contents: read
+jobs:
+  mysql:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: laboratorio_ci
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -plaboratorio_ci"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar cliente MySQL
+        run: sudo apt-get update && sudo apt-get install -y default-mysql-client
+      - name: Probar esquema, datos y restricciones
+        env:
+          MYSQL_PWD: laboratorio_ci
+        run: python3 scripts/validar_sql.py

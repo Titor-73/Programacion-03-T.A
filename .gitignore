@@ -1,4 +1,6 @@
 *.class
+__pycache__/
+*.pyc
 **/target/
 /build-check/
 .idea/

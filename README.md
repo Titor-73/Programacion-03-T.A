@@ -1,5 +1,8 @@
 # PazCompras
 
+La base de datos MySQL, sus registros de prueba y las instrucciones de ingeniería
+inversa están en [ScriptSQL/README.md](ScriptSQL/README.md).
+
 Trabajo Académico del curso [1INF30] Programación 3 de la PUCP, ciclo 2026-2.
 
 ## Estructura Maven
