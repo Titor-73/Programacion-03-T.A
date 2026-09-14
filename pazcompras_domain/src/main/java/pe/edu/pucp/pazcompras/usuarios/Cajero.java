@@ -1,6 +1,6 @@
-package pe.edu.pucp.pazcompras.usuarios.model;
+package pe.edu.pucp.pazcompras.usuarios;
 
-import pe.edu.pucp.pazcompras.sedes.model.Sede;
+import pe.edu.pucp.pazcompras.sedes.Sede;
 
 public class Cajero extends Usuario {
     private String codigoEmpleado;
