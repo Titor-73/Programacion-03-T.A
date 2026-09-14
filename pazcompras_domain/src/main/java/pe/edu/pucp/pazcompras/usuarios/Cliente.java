@@ -1,6 +1,6 @@
-package pe.edu.pucp.pazcompras.usuarios.model;
+package pe.edu.pucp.pazcompras.usuarios;
 
-import pe.edu.pucp.pazcompras.pedidos.model.Pedido;
+import pe.edu.pucp.pazcompras.pedidos.Pedido;
 
 import java.util.List;
 import java.util.ArrayList;
