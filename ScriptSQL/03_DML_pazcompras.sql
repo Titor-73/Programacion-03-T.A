@@ -4,7 +4,8 @@
 -- Script de Carga de Datos y Prueba (DML)
 -- Los usuarios y direcciones siguientes son ficticios.
 -- ============================================================
-
+USE pazcompras;
+SET SQL_SAFE_UPDATES = 0;
 START TRANSACTION;
 SET @ahora = NOW();
 SET @hoy = DATE(@ahora);
