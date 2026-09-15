@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import pe.edu.pucp.pazcompras.catalogo.Categoria;
 import pe.edu.pucp.pazcompras.catalogo.Producto;
 
-/** Punto de entrada para comprobar la integración con el módulo de dominio. */
 public class Principal {
     public static void main(String[] args) {
         Categoria categoria = new Categoria(1, "Bebidas", "Catálogo global");
