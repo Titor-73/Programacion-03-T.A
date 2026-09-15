@@ -20,8 +20,8 @@ public abstract class Usuario {
         this.correo = correo;
         this.contrasenaHash = contrasenaHash;
         this.telefono = telefono;
-        this.activo = true; // Por defecto nace activo
-        this.fechaRegistro = LocalDateTime.now(); // Asigna la fecha y hora actual
+        this.activo = true; 
+        this.fechaRegistro = LocalDateTime.now(); 
         this.ultimoAcceso = LocalDateTime.now();
     }
 	public Usuario(Usuario usuario){

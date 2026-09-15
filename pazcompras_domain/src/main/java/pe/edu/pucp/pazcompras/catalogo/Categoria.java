@@ -18,7 +18,6 @@ public class Categoria {
         this.productos = new ArrayList<>();
     }
 
-    // Constructor copia
     public Categoria(Categoria categoria) {
         this.idCategoria = categoria.idCategoria;
         this.nombre = categoria.nombre;
