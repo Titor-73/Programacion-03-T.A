@@ -2,7 +2,6 @@
 -- pazcompras | MySQL 8.0+
 -- DATOS DE PRUEBA: toda la carga es una sola transaccion.
 -- Script de Carga de Datos y Prueba (DML)
--- Los usuarios y direcciones siguientes son ficticios.
 -- ============================================================
 USE pazcompras;
 SET SQL_SAFE_UPDATES = 0;
@@ -12,12 +11,12 @@ SET @hoy = DATE(@ahora);
 -- Clave exclusiva para demostracion: PazComprasDemo2026!
 -- Hash scrypt individual con sal aleatoria; formato documentado en README.
 INSERT INTO usuario (id_usuario,nombres,apellidos,correo,contrasena_hash,telefono,rol) VALUES
-(1,'Ana','Prueba','admin@example.test','scrypt$131072$8$1$wgar5MFgTV0uyDCSccow4w==$r92DlQlfbBthvA5YLhmcZ5mVAwEiNcrZGyUCuQQPQYw=',NULL,'ADMINISTRADOR'),
-(2,'Luis','Prueba','cajero.centro@example.test','scrypt$131072$8$1$UkEqTqpQP8jFQwK7w0p2QQ==$hU+KQZ9Lk5OKB8m05aQPQ/20TYdScUyolVYsHoRY2QU=',NULL,'CAJERO'),
-(3,'Rosa','Prueba','cajero.norte@example.test','scrypt$131072$8$1$AfDWoVPvKSdJDkfeSFkhBw==$d9TLEpqgtLjepba5CEb12Ja1t34LGNeRmaFakPHQuHo=',NULL,'CAJERO'),
-(4,'Carla','Ejemplo','cliente.uno@example.test','scrypt$131072$8$1$X4qtedFawNrXZiUReVNAeg==$j+5OLjl7xJzYmwsYOvJSO8PjIs+CwkK2OL/AQXcvyuA=',NULL,'CLIENTE'),
-(5,'Pedro','Ejemplo','cliente.dos@example.test','scrypt$131072$8$1$jMA4b+/9xKoS+uCY8HYSBA==$NJjn6A3nHHrhilf/y45xYUbDJGZiFaZawSqm8kbxUfI=',NULL,'CLIENTE'),
-(6,'Elena','Ejemplo','cliente.tres@example.test','scrypt$131072$8$1$1aFz2izcKRmWYfD0ctUUOQ==$9kXI1k1edxCzh7nEZjjnXr5MSbR0X0WBAnDI1mJZkuU=',NULL,'CLIENTE');
+(1,'Freddy','Paz','fpaz@example.test','scrypt$131072$8$1$wgar5MFgTV0uyDCSccow4w==$r92DlQlfbBthvA5YLhmcZ5mVAwEiNcrZGyUCuQQPQYw=',NULL,'ADMINISTRADOR'),
+(2,'Jose Luis','Corcuera','jlcorcuera@example.test','scrypt$131072$8$1$UkEqTqpQP8jFQwK7w0p2QQ==$hU+KQZ9Lk5OKB8m05aQPQ/20TYdScUyolVYsHoRY2QU=',NULL,'CAJERO'),
+(3,'Rony','Cueva','cajero.norte@example.test','scrypt$131072$8$1$AfDWoVPvKSdJDkfeSFkhBw==$d9TLEpqgtLjepba5CEb12Ja1t34LGNeRmaFakPHQuHo=',NULL,'CAJERO'),
+(4,'Ana','Roncal','cliente.uno@example.test','scrypt$131072$8$1$X4qtedFawNrXZiUReVNAeg==$j+5OLjl7xJzYmwsYOvJSO8PjIs+CwkK2OL/AQXcvyuA=',NULL,'CLIENTE'),
+(5,'Erasmo','Gomez','cliente.dos@example.test','scrypt$131072$8$1$jMA4b+/9xKoS+uCY8HYSBA==$NJjn6A3nHHrhilf/y45xYUbDJGZiFaZawSqm8kbxUfI=',NULL,'CLIENTE'),
+(6,'Viktor','KHLEBNIKOV','vkhlebn@example.test','scrypt$131072$8$1$1aFz2izcKRmWYfD0ctUUOQ==$9kXI1k1edxCzh7nEZjjnXr5MSbR0X0WBAnDI1mJZkuU=',NULL,'CLIENTE');
 INSERT INTO cliente (id_usuario) VALUES (4),(5),(6);
 UPDATE usuario SET fecha_registro = @ahora - INTERVAL 30 DAY;
 INSERT INTO administrador (id_usuario) VALUES (1);

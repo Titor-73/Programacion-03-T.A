@@ -2,7 +2,6 @@
 -- PazCompras | MySQL 8.0.16+ | InnoDB | UTF-8
 -- Crear en una instancia de desarrollo. No borra ni reemplaza una base existente.
 -- Ejecutar una sola vez y detenerse ante cualquier error.
--- Fuente: dominio Java del commit d4439345 y alcance corregido.
 -- Las fechas DATETIME se interpretan como hora local de Lima.
 -- ======================================================================================
 SET NAMES utf8mb4;
