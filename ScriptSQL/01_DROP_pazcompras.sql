@@ -1,4 +1,3 @@
--- Desactivar temporalmente la revisión de llaves foráneas para evitar bloqueos
 SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS movimiento_inventario;
@@ -18,6 +17,5 @@ DROP TABLE IF EXISTS administrador;
 DROP TABLE IF EXISTS cliente;
 DROP TABLE IF EXISTS usuario;
 
--- DROP DATABASE IF EXISTS pazcompras; -- Opcional: borrar la base de datos completa
 
 SET FOREIGN_KEY_CHECKS = 1;
