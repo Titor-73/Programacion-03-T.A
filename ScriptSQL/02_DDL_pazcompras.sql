@@ -1,16 +1,9 @@
--- ======================================================================================
--- PazCompras | MySQL 8.0.16+ | InnoDB | UTF-8
--- Crear en una instancia de desarrollo. No borra ni reemplaza una base existente.
--- Ejecutar una sola vez y detenerse ante cualquier error.
--- Las fechas DATETIME se interpretan como hora local de Lima.
--- ======================================================================================
+
 SET NAMES utf8mb4;
 SET SESSION time_zone = '-05:00';
 CREATE DATABASE IF NOT EXISTS pazcompras CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE pazcompras;
 
--- Herencia: una cuenta base y una tabla por subtipo, como persona/empleado
--- en el ejemplo del profesor. rol es el discriminador de la clase Java.
 CREATE TABLE usuario (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     nombres VARCHAR(100) NOT NULL,
